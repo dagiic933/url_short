@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My URL Shortener{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block content %}{% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var longUrlInput = document.getElementById('id_long_url');
+        var placeholderSpan = document.getElementById('long-url-placeholder');
+
+        longUrlInput.addEventListener('input', function () {
+            placeholderSpan.textContent = longUrlInput.value || 'Long URL:';
+        });
+    });
+</script>
+</body>
+</html>

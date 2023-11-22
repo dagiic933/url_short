@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Shorten Your URL</h2>
+    <div class="url-form">
+      <form method="post" action="{% url 'shorten_url' %}">
+        {% csrf_token %}
+        {{ form.long_url }}
+        <button type="submit">Shorten</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
